@@ -22,7 +22,7 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>CushionCatch: A Compliant Catching Mechanism for Mobile Manipulators via Combined Optimization and Learning</title>
+  <title>Safe Expeditious Whole-Body Control of Mobile Manipulators for Collision Avoidance</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -54,12 +54,11 @@
               <!-- Paper authors -->
               <div class="is-size-5 publication-authors">
                 <!-- Paper authors -->
-                <span class="author-block">Bingjie Chen<sup>*</sup>,</span>
-                <span class="author-block">Keyu Fan<sup>*</sup>,</span>
-                <span class="author-block">Qi Yang,</span>
-                <span class="author-block">Yi Cheng,</span>
-                <span class="author-block">Houde Liu,</span><br>
-                <span class="author-block">Kangkang Dong,</span>
+                <span class="author-block">Bingjie Chen,</span>
+                <span class="author-block">Yancong Wei,</span>
+                <span class="author-block">Rihao Liu,</span>
+                <span class="author-block">Chenxi Han,</span><br>
+                <span class="author-block">Houde Liu*,</span>
                 <span class="author-block">Chongkun Xia,</span>
                 <span class="author-block">Liang Han,</span>
                 <span class="author-block">Bin Liang</span>
@@ -69,13 +68,12 @@
                 <img src="static/images/tsinghua.png" alt="" style="width: 150px; height: 50px; margin-right: 35px; margin-top: 50px; margin-bottom: 50px;">
                 <img src="static/images/zhongshan.png" alt="" style="width: 150px; height: 50px; margin-right: 35px; margin-top: 50px; margin-bottom: 50px;">
                 <img src="static/images/hfut.png" alt="" style="width: 250px; height: 50px; margin-right: 35px; margin-top: 50px; margin-bottom: 50px;">
-                <img src="static/images/jianghuai.png" alt="" style="width: 250px; height: 50px; margin-top: 50px; margin-bottom: 50px;">
               </div>
 
-
+<!-- 
                 <div class="is-size-5 publication-authors">
                   <span class="author-block">IROS 2025</span>
-                </div>
+                </div> -->
 
                 <div class="column has-text-centered">
                   <div class="publication-links">
@@ -89,7 +87,7 @@
                       </a>
                     </span>
                 
-                    <span class="link-block" style="display: inline-block;">
+                    <!-- <span class="link-block" style="display: inline-block;">
                       <a href="https://github.com/bingjiechen-THU/CushionCatch" target="_blank"
                          class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
@@ -99,19 +97,7 @@
                       </a>
                     </span>
                   </div>
-                </div>
-
-
-                <!-- ArXiv abstract Link -->
-<!--                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
+                </div> -->
                       
             </div>
           </div>
@@ -127,7 +113,7 @@
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <!-- Your video here -->
-        <source src="static/videos/CushionCatch.mp4"
+        <source src="static/videos/video.mp4"
         type="video/mp4">
       </video>
     </div>
@@ -143,28 +129,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Catching flying objects with a cushioning
-process is a skill commonly performed by humans, yet it
-remains a significant challenge for robots. In this paper, we
-present a framework that combines optimization and learn-
-ing to achieve compliant catching on mobile manipulators
-(CCMM). First, we propose a high-level capture planner for
-mobile manipulators (MM) that calculates the optimal capture
-point and joint configuration. Next, the pre-catching (PRC)
-planner ensures the robot reaches the target joint configuration
-as quickly as possible. To learn compliant catching strategies,
-we introduce a network that leverages the strengths of LSTM
-for capturing temporal dependencies and positional encoding
-for spatial context (P-LSTM). This network is designed to effec-
-tively learn compliant strategies from human demonstrations.
-Following this, the post-catching (POC) planner tracks the
-compliant sequence output by the P-LSTM while avoiding po-
-tential collisions due to structural differences between humans
-and robots. We validate the CCMM framework through both
-simulated and real-world ball-catching scenarios, achieving a
-success rate of 98.70% in simulation, 92.59% in real-world tests,
-and a 28.7% reduction in impact torques. The open source code
-will be released for the reference of the community.
+            Whole-body reactive obstacle avoidance for mobile manipulators (MM) remains an open research
+ problem. Control Barrier Functions (CBF), combined with Quadratic Programming (QP), have
+ become a popular approach for reactive control with safety guarantees. However, traditional CBF
+ methods often face issues such as pseudo-equilibrium problems (PEP) and are ineffective in handling
+ dynamic obstacles. To overcome these challenges, we introduce the Adaptive Cyclic Inequality
+ (ACI) method. ACI takes into account both the obstacle’s velocity and the robot’s nominal control
+ to define a directional safety constraint. When added to the CBF-QP, ACI helps avoid PEP and
+ enables reliable collision avoidance in dynamic environments. We validate our approach on a MM
+ that includes a low-dimensional mobile base and a high-dimensional manipulator, demonstrating the
+ generality of the framework. In addition, we integrate a simple yet effective method for avoiding self
+collisions, allowing the robot enabling comprehensive whole-body collision-free operation. Extensive
+ benchmark comparisons and experiments demonstrate that our method performs well in unknown and
+ dynamic scenarios, including difficult tasks like avoiding sticks swung by humans and rapidly thrown
+ objects.
         </div>
       </div>
     </div>
@@ -175,10 +153,10 @@ will be released for the reference of the community.
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{chen2025cushion,
-    title     = {CushionCatch: A Compliant Catching Mechanism for Mobile Manipulators via Combined Optimization and Learning},
-    author    = {YBingjie Chen, Keyu Fan, Qi Yang, Yi Cheng, Houde Liu, Kangkang Dong, Chongkun Xia, Liang Han, Bin Liang},
-    journal = {arXiv preprint arXiv: Arxiv-2409.14754},
+      <pre><code>@article{sewb,
+    title     = {Safe Expeditious Whole-Body Control of Mobile Manipulators for Collision Avoidance},
+    author    = {Bingjie Chen and Yancong Wei and Rihao Liu and Chenxi Han and Houde Liu and Chongkun Xia and Liang Han and Bin Liang},
+    journal = {arXiv preprint arXiv: Arxiv-2409.14775},
     year      = {2025},
   }
 </code></pre>
